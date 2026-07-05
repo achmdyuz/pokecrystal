@@ -262,8 +262,23 @@ DoPlayerMovement::
 	jr z, .TrySurf
 
 	call .CheckLandPerms
+    jr nc, .land_perms_ok       ; If land says OK naturally, continue
+         
+	; If land says BLOCKED, check the cheat button
+	push af
+	ld a, [hJoyDown]            ; Read keys
+	and PAD_B                   ; Is B held?
+	jr z, .no_cheat_land        ; If not held, crash into the wall normally
+
+	pop af
+	and a                       ; Clear carry flag (c = 0) -> Force success!
+	jr .land_perms_ok
+
+.no_cheat_land
+    pop af
 	jr c, .bump
 
+.land_perms_ok 
 	call .CheckNPC
 	and a
 	jr z, .bump
