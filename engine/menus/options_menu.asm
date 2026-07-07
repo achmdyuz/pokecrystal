@@ -4,7 +4,7 @@
 	const OPT_BATTLE_SCENE  ; 1
 	const OPT_BATTLE_STYLE  ; 2
 	const OPT_SOUND         ; 3
-	const OPT_PRINT         ; 4
+	const OPT_REPEL         ; 4
 	const OPT_MENU_ACCOUNT  ; 5
 	const OPT_FRAME         ; 6
 	const OPT_CANCEL        ; 7
@@ -83,7 +83,7 @@ StringOptions:
 	db "        :<LF>"
 	db "SOUND<LF>"
 	db "        :<LF>"
-	db "PRINT<LF>"
+	db "REPEL<LF>"
 	db "        :<LF>"
 	db "MENU ACCOUNT<LF>"
 	db "        :<LF>"
@@ -100,8 +100,7 @@ GetOptionPointer:
 	dw Options_BattleScene
 	dw Options_BattleStyle
 	dw Options_Sound
-	dw Options_Print
-	dw Options_MenuAccount
+	dw Options_Repel
 	dw Options_Frame
 	dw Options_Cancel
 
@@ -320,138 +319,44 @@ Options_Sound:
 	const OPT_PRINT_DARKER   ; 3
 	const OPT_PRINT_DARKEST  ; 4
 
-Options_Print:
-	call GetPrinterSetting
-	ldh a, [hJoyPressed]
-	bit B_PAD_LEFT, a
-	jr nz, .LeftPressed
-	bit B_PAD_RIGHT, a
-	jr z, .NonePressed
-	ld a, c
-	cp OPT_PRINT_DARKEST
-	jr c, .Increase
-	ld c, OPT_PRINT_LIGHTEST - 1
 
-.Increase:
-	inc c
-	ld a, e
-	jr .Save
-
-.LeftPressed:
-	ld a, c
-	and a
-	jr nz, .Decrease
-	ld c, OPT_PRINT_DARKEST + 1
-
-.Decrease:
-	dec c
-	ld a, d
-
-.Save:
-	ld b, a
-	ld [wGBPrinterBrightness], a
-
-.NonePressed:
-	ld b, 0
-	ld hl, .Strings
-	add hl, bc
-	add hl, bc
-	ld e, [hl]
-	inc hl
-	ld d, [hl]
-	hlcoord 11, 11
-	call PlaceString
-	and a
-	ret
-
-.Strings:
-; entries correspond to OPT_PRINT_* constants
-	dw .Lightest
-	dw .Lighter
-	dw .Normal
-	dw .Darker
-	dw .Darkest
-
-.Lightest: db "LIGHTEST@"
-.Lighter:  db "LIGHTER @"
-.Normal:   db "NORMAL  @"
-.Darker:   db "DARKER  @"
-.Darkest:  db "DARKEST @"
-
-GetPrinterSetting:
-; converts GBPRINTER_* value in a to OPT_PRINT_* value in c,
-; with previous/next GBPRINTER_* values in d/e
-	ld a, [wGBPrinterBrightness]
-	and a
-	jr z, .IsLightest
-	cp GBPRINTER_LIGHTER
-	jr z, .IsLight
-	cp GBPRINTER_DARKER
-	jr z, .IsDark
-	cp GBPRINTER_DARKEST
-	jr z, .IsDarkest
-	; none of the above
-	ld c, OPT_PRINT_NORMAL
-	lb de, GBPRINTER_LIGHTER, GBPRINTER_DARKER
-	ret
-
-.IsLightest:
-	ld c, OPT_PRINT_LIGHTEST
-	lb de, GBPRINTER_DARKEST, GBPRINTER_LIGHTER
-	ret
-
-.IsLight:
-	ld c, OPT_PRINT_LIGHTER
-	lb de, GBPRINTER_LIGHTEST, GBPRINTER_NORMAL
-	ret
-
-.IsDark:
-	ld c, OPT_PRINT_DARKER
-	lb de, GBPRINTER_NORMAL, GBPRINTER_DARKEST
-	ret
-
-.IsDarkest:
-	ld c, OPT_PRINT_DARKEST
-	lb de, GBPRINTER_DARKER, GBPRINTER_LIGHTEST
-	ret
-
-Options_MenuAccount:
-	ld hl, wOptions2
-	ldh a, [hJoyPressed]
-	bit B_PAD_LEFT, a
-	jr nz, .LeftPressed
-	bit B_PAD_RIGHT, a
-	jr z, .NonePressed
-	bit MENU_ACCOUNT, [hl]
-	jr nz, .ToggleOff
-	jr .ToggleOn
-
-.LeftPressed:
-	bit MENU_ACCOUNT, [hl]
-	jr z, .ToggleOn
-	jr .ToggleOff
-
-.NonePressed:
-	bit MENU_ACCOUNT, [hl]
-	jr nz, .ToggleOn
-
-.ToggleOff:
-	res MENU_ACCOUNT, [hl]
-	ld de, .Off
-	jr .Display
-
-.ToggleOn:
-	set MENU_ACCOUNT, [hl]
-	ld de, .On
-
-.Display:
-	hlcoord 11, 13
-	call PlaceString
-	and a
-	ret
-
-.Off: db "OFF@"
-.On:  db "ON @"
+ Options_Repel:
+ 	ld hl, wOptions2
+ 	ldh a, [hJoyPressed]
+ 	bit D_LEFT_F, a
+ 	jr nz, .LeftPressed
+ 	bit D_RIGHT_F, a
+ 	jr z, .NonePressed
+ 	bit REPEL_OPTION, [hl]
+ 	jr nz, .ToggleOff
+ 	jr .ToggleOn
+ 
+ .LeftPressed:
+ 	bit REPEL_OPTION, [hl]
+ 	jr z, .ToggleOn
+ 	jr .ToggleOff
+ 
+ .NonePressed:
+ 	bit REPEL_OPTION, [hl]
+ 	jr nz, .ToggleOn
+ 
+ .ToggleOff:
+ 	res REPEL_OPTION, [hl]
+ 	ld de, .Off
+ 	jr .Display
+ 
+ .ToggleOn:
+ 	set REPEL_OPTION, [hl]
+ 	ld de, .On
+ 
+ .Display:
+ 	hlcoord 11, 11
+ 	call PlaceString
+ 	and a
+ 	ret
+ 
+ .Off: db "OFF@"
+ .On:  db "ON @"
 
 Options_Frame:
 	ld hl, wTextboxFrame
