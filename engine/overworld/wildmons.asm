@@ -578,7 +578,6 @@ UpdateRoamMons:
 	ld b, a
 	; ld a, [wRoamMon1MapNumber]
 	ld c, a
-	call .Update
 	ld a, b
 	; ld [wRoamMon1MapGroup], a
 	ld a, c
