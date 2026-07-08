@@ -614,6 +614,7 @@ UpdateRoamMons:
 	jp _BackUpMapIndices
 
 .Update:
+    ret
 	ld hl, RoamMaps
 .loop
 ; Are we at the end of the table?
