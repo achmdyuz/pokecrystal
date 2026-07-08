@@ -571,48 +571,50 @@ CheckEncounterRoamMon:
 	ret
 
 UpdateRoamMons:
-	ld a, [wRoamMon1MapGroup]
+    ret
+	; ld a, [wRoamMon1MapGroup]
 	cp GROUP_N_A
 	jr z, .SkipRaikou
 	ld b, a
-	ld a, [wRoamMon1MapNumber]
+	; ld a, [wRoamMon1MapNumber]
 	ld c, a
 	call .Update
 	ld a, b
-	ld [wRoamMon1MapGroup], a
+	; ld [wRoamMon1MapGroup], a
 	ld a, c
-	ld [wRoamMon1MapNumber], a
+	; ld [wRoamMon1MapNumber], a
 
 .SkipRaikou:
-	ld a, [wRoamMon2MapGroup]
+	; ld a, [wRoamMon2MapGroup]
 	cp GROUP_N_A
 	jr z, .SkipEntei
 	ld b, a
-	ld a, [wRoamMon2MapNumber]
+	; ld a, [wRoamMon2MapNumber]
 	ld c, a
 	call .Update
 	ld a, b
-	ld [wRoamMon2MapGroup], a
+	; ld [wRoamMon2MapGroup], a
 	ld a, c
-	ld [wRoamMon2MapNumber], a
+	; ld [wRoamMon2MapNumber], a
 
 .SkipEntei:
-	ld a, [wRoamMon3MapGroup]
+	; ld a, [wRoamMon3MapGroup]
 	cp GROUP_N_A
 	jr z, .Finished
 	ld b, a
-	ld a, [wRoamMon3MapNumber]
+	; ld a, [wRoamMon3MapNumber]
 	ld c, a
 	call .Update
 	ld a, b
-	ld [wRoamMon3MapGroup], a
+	; ld [wRoamMon3MapGroup], a
 	ld a, c
-	ld [wRoamMon3MapNumber], a
+	; ld [wRoamMon3MapNumber], a
 
 .Finished:
 	jp _BackUpMapIndices
 
 .Update:
+    ret
 	ld hl, RoamMaps
 .loop
 ; Are we at the end of the table?
@@ -670,34 +672,34 @@ UpdateRoamMons:
 	ret
 
 JumpRoamMons:
-	ld a, [wRoamMon1MapGroup]
+	; ld a, [wRoamMon1MapGroup]
 	cp GROUP_N_A
 	jr z, .SkipRaikou
 	call JumpRoamMon
 	ld a, b
-	ld [wRoamMon1MapGroup], a
+	; ld [wRoamMon1MapGroup], a
 	ld a, c
-	ld [wRoamMon1MapNumber], a
+	; ld [wRoamMon1MapNumber], a
 
 .SkipRaikou:
-	ld a, [wRoamMon2MapGroup]
+	; ld a, [wRoamMon2MapGroup]
 	cp GROUP_N_A
 	jr z, .SkipEntei
 	call JumpRoamMon
 	ld a, b
-	ld [wRoamMon2MapGroup], a
+	; ld [wRoamMon2MapGroup], a
 	ld a, c
-	ld [wRoamMon2MapNumber], a
+	; ld [wRoamMon2MapNumber], a
 
 .SkipEntei:
-	ld a, [wRoamMon3MapGroup]
+	; ld a, [wRoamMon3MapGroup]
 	cp GROUP_N_A
 	jr z, .Finished
 	call JumpRoamMon
 	ld a, b
-	ld [wRoamMon3MapGroup], a
+	; ld [wRoamMon3MapGroup], a
 	ld a, c
-	ld [wRoamMon3MapNumber], a
+	; ld [wRoamMon3MapNumber], a
 
 .Finished:
 	jp _BackUpMapIndices
