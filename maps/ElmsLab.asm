@@ -161,25 +161,25 @@ CyndaquilPokeBallScript:
 	iftrue LookAtElmPokeBallScript
 	turnobject ELMSLAB_ELM, DOWN
 	reanchormap
-	pokepic MEWTWO
-	cry MEWTWO
+	pokepic MAGIKARP
+	cry MAGIKARP
 	waitbutton
 	closepokepic
 	opentext
-	writetext TakeMewTwoText
+	writetext TakeMagikarpText
 	yesorno
 	iffalse DidntChooseStarterScript
 	disappear ELMSLAB_POKE_BALL1
-	setevent EVENT_GOT_MEWTWO_FROM_ELM
+	setevent EVENT_GOT_MAGIKARP_FROM_ELM
 	writetext ChoseStarterText
 	promptbutton
 	waitsfx
-	getmonname STRING_BUFFER_3, MEWTWO
+	getmonname STRING_BUFFER_3, MAGIKARP
 	writetext ReceivedStarterText
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke MEWTWO, 5, BERRY
+	givepoke MAGIKARP, 5, BERRY
 	closetext
 	readvar VAR_FACING
 	ifequal RIGHT, ElmDirectionsScript
@@ -856,10 +856,10 @@ LabWhereGoingText:
 	line "are you going?"
 	done
 
-TakeMewTwoText:
+TakeMagikarpText:
 	text "ELM: You'll take"
-	line "MEWTWO, the"
-	cont "Psychic #MON?"
+	line "MAGIKARP, the"
+	cont "Water #MON?"
 	done
 
 TakeTotodileText:
