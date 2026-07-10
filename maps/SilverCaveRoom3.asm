@@ -35,7 +35,7 @@ Red:
 	end
 
 RedSeenText:
-	text "<……>"
+	text "<HELP!>"
 	line "<……>"
 	done
 
