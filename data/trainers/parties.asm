@@ -3425,12 +3425,12 @@ PokefanFGroup:
 RedGroup:
 	; RED (1)
 	db "RED@", TRAINERTYPE_NORMAL
-    db 81, PIKACHU
-    db 73, MEWTWO
-    db 75, SNORLAX
-    db 77, VENUSAUR
-    db 77, CHARIZARD
-    db 77, BLASTOISE
+    db 100, PIKACHU
+    db 100, MEWTWO
+    db 100, SNORLAX
+    db 100, VENUSAUR
+    db 100, CHARIZARD
+    db 100, BLASTOISE
 	db -1 ; end
 
 BlueGroup:
