@@ -35,12 +35,12 @@ Red:
 	end
 
 RedSeenText:
-	text "<HELP!>"
+	text "<...>"
 	line "<HELP!>"
 	done
 
 RedWinLossText:
-	text "なにそれ。。。！？"
+	text "What, who are you!?"
 	done
 
 RedLeavesText:
