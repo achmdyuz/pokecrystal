@@ -36,11 +36,11 @@ Red:
 
 RedSeenText:
 	text "<HELP!>"
-	line "<……>"
+	line "<HELP!>"
 	done
 
 RedWinLossText:
-	text "…"
+	text "なにそれ。。。！？"
 	done
 
 RedLeavesText:
