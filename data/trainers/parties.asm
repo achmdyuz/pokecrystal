@@ -3425,7 +3425,7 @@ PokefanFGroup:
 RedGroup:
 	; RED (1)
 	db "RED@", TRAINERTYPE_NORMAL
-    db 80, RAICHU
+    db 80, PIKACHU
     db 80, MEWTWO
     db 80, SNORLAX
     db 80, VENUSAUR
