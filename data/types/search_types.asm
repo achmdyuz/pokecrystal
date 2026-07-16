@@ -18,4 +18,5 @@ PokedexTypeSearchConversionTable:
 	db DRAGON
 	db DARK
 	db STEEL
-	assert_table_length NUM_TYPES
+    db KAMI
+	assert_table_length 18
