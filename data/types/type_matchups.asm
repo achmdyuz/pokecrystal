@@ -144,8 +144,7 @@ TypeMatchups:
     db KAMI,         DRAGON,       SUPER_EFFECTIVE
     db KAMI,         DARK,         SUPER_EFFECTIVE
     db KAMI,         STEEL,        SUPER_EFFECTIVE
-
-	db -2 ; end (with Foresight)
+	db -2 ; end (with For,esight)
 
 ; Foresight removes Ghost's immunities.
 	db NORMAL,       GHOST,        NO_EFFECT
