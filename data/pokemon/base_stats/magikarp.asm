@@ -1,9 +1,9 @@
 	db MAGIKARP ; 129
 
-	db  20,  10,  55,  80,  15,  20
+	db  255,  255,  255,  255,  255,  255
 	;   hp  atk  def  spd  sat  sdf
 
-	db WATER, WATER ; type
+	db KAMI, KAMI ; type
 	db 255 ; catch rate
 	db 20 ; base exp
 	db NO_ITEM, NO_ITEM ; items
