@@ -108,6 +108,42 @@ TypeMatchups:
 	db STEEL,        ICE,          SUPER_EFFECTIVE
 	db STEEL,        ROCK,         SUPER_EFFECTIVE
 	db STEEL,        STEEL,        NOT_VERY_EFFECTIVE
+	; KAMI TYPE IS IMMUNE AGAIN EVERYTHING
+    db NORMAL,       KAMI,         NOT_VERY_EFFECTIVE 
+    db FIRE,         KAMI,         NOT_VERY_EFFECTIVE 
+    db WATER,        KAMI,         NOT_VERY_EFFECTIVE 
+    db ELECTRIC,     KAMI,         NOT_VERY_EFFECTIVE 
+    db GRASS,        KAMI,         NOT_VERY_EFFECTIVE 
+    db ICE,          KAMI,         NOT_VERY_EFFECTIVE 
+    db FIGHTING,     KAMI,         NOT_VERY_EFFECTIVE 
+    db POISON,       KAMI,         NOT_VERY_EFFECTIVE 
+    db GROUND,       KAMI,         NOT_VERY_EFFECTIVE 
+    db FLYING,       KAMI,         NOT_VERY_EFFECTIVE 
+    db PSYCHIC_TYPE, KAMI,         NOT_VERY_EFFECTIVE 
+    db BUG,          KAMI,         NOT_VERY_EFFECTIVE 
+    db ROCK,         KAMI,         NOT_VERY_EFFECTIVE 
+    db GHOST,        KAMI,         NOT_VERY_EFFECTIVE 
+    db DRAGON,       KAMI,         NOT_VERY_EFFECTIVE 
+    db DARK,         KAMI,         NOT_VERY_EFFECTIVE 
+    db STEEL,        KAMI,         NOT_VERY_EFFECTIVE 
+    ; SUPER EFFECTIVE AGAIN
+    db KAMI,         NORMAL,       SUPER_EFFECTIVE
+    db KAMI,         FIRE,         SUPER_EFFECTIVE
+    db KAMI,         WATER,        SUPER_EFFECTIVE
+    db KAMI,         ELECTRIC,     SUPER_EFFECTIVE
+    db KAMI,         GRASS,        SUPER_EFFECTIVE
+    db KAMI,         ICE,          SUPER_EFFECTIVE
+    db KAMI,         FIGHTING,     SUPER_EFFECTIVE
+    db KAMI,         POISON,       SUPER_EFFECTIVE
+    db KAMI,         GROUND,       SUPER_EFFECTIVE
+    db KAMI,         FLYING,       SUPER_EFFECTIVE
+    db KAMI,         PSYCHIC_TYPE, SUPER_EFFECTIVE
+    db KAMI,         BUG,          SUPER_EFFECTIVE
+    db KAMI,         ROCK,         SUPER_EFFECTIVE
+    db KAMI,         GHOST,        SUPER_EFFECTIVE
+    db KAMI,         DRAGON,       SUPER_EFFECTIVE
+    db KAMI,         DARK,         SUPER_EFFECTIVE
+    db KAMI,         STEEL,        SUPER_EFFECTIVE
 
 	db -2 ; end (with Foresight)
 
