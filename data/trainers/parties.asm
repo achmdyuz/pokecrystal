@@ -13,7 +13,7 @@ Trainers:
 FalknerGroup:
 	; FALKNER (1)
 	db "FALKNER@", TRAINERTYPE_NORMAL
-    db  70, PIDGEOT
+    db  80, PIDGEOT
     db  99, ARTICUNO
 	db -1 ; end
 
@@ -269,10 +269,10 @@ ChampionGroup:
 BrockGroup:
 	; BROCK (1)
 	db "BROCK@", TRAINERTYPE_NORMAL
-    db 48, GOLEM
-    db 48, OMANYTE
-    db 48, STEELIX
-    db 48, KABUTOPS
+    db 98, GOLEM
+    db 98, OMANYTE
+    db 98, STEELIX
+    db 98, KABUTOPS
     db 99, TYRANITAR
 	db -1 ; end
 
@@ -1488,16 +1488,16 @@ TeacherGroup:
 SabrinaGroup:
 	; SABRINA (1)
 	db "SABRINA@", TRAINERTYPE_NORMAL
-    db 46, ALAKAZAM
-    db 46, MR__MIME
-    db 48, MEW
+    db 96, ALAKAZAM
+    db 96, MR__MIME
+    db 98, MEW
 	db -1 ; end
 
 BugCatcherGroup:
 	; BUG_CATCHER (1)
 	db "DON@", TRAINERTYPE_NORMAL
-	db  3, BUTTERFREE
-	db  3, BUTTERFREE
+	db  83, BUTTERFREE
+	db  83, BUTTERFREE
 	db -1 ; end
 
 	; BUG_CATCHER (2)
